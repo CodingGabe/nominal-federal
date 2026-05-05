@@ -1,27 +1,60 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
-/* Muoto and PP Fraktion Mono are proprietary — add woff2 files to /public/fonts/ */
+/* ─── Muoto — 6 faces: weight 300/400/500, normal + italic ─────────────── */
 @font-face {
-  font-family: "Muoto";
-  src: url("/fonts/Muoto-Regular.woff2") format("woff2");
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "PP Fraktion Mono";
-  src: url("/fonts/PPFraktionMono-Regular.woff2") format("woff2");
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-Italic.otf') format('opentype');
   font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-Medium.otf') format('opentype');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "PP Fraktion Mono";
-  src: url("/fonts/PPFraktionMono-Bold.woff2") format("woff2");
-  font-weight: 700;
+  font-family: 'Muoto';
+  src: url('/fonts/muoto/Muoto-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Fraktion Mono — variable font, weight axis 100–900 ────────────────── */
+@font-face {
+  font-family: 'Fraktion Mono';
+  src: url('/fonts/FraktionMono-Variable.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -83,13 +116,13 @@
 }
 
 @theme inline {
-  --font-muoto: "Muoto", ui-sans-serif, system-ui, sans-serif;
-  --font-fraktion-mono: "PP Fraktion Mono", ui-monospace, Menlo, monospace;
-  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-muoto: 'Muoto', ui-sans-serif, system-ui, sans-serif;
+  --font-fraktion-mono: 'Fraktion Mono', ui-monospace, Menlo, monospace;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Muoto", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-muoto);
 }

@@ -58,7 +58,7 @@ const config: Config = {
       fontFamily: {
         muoto: ["Muoto", "ui-sans-serif", "system-ui", "sans-serif"],
         "fraktion-mono": [
-          "PP Fraktion Mono",
+          "Fraktion Mono",
           "ui-monospace",
           "Menlo",
           "monospace",
