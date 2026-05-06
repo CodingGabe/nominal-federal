@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from 'next/image'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -44,8 +45,16 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen overflow-hidden bg-background-muted"
     >
-      {/* Background — swap this div for <Image> once the hero asset is ready */}
-      <div className="absolute inset-0 bg-[#0f1a0f]" />
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-transparent" />
@@ -54,7 +63,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 pt-32 pb-0">
         <h1
           data-animate
-          className="max-w-5xl text-center font-muoto text-h1 leading-tight tracking-tight text-foreground-active"
+          className="max-w-5xl text-center font-muoto text-h1 tracking-tight text-foreground-active"
         >
           Deploy critical capabilities at mission speed
         </h1>
