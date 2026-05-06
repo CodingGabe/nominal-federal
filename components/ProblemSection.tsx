@@ -333,18 +333,18 @@ export default function ProblemSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black py-24">
+    <section ref={sectionRef} data-nav-theme="dark" className="bg-black py-24">
       <div className="mx-auto max-w-7xl px-16">
         {/* Top row: heading + body */}
-        <div className="grid grid-cols-[2fr_3fr] items-start gap-16">
+        <div className="grid grid-cols-[2fr_3fr] items-start justify-between gap-16">
           <div>
-            <div className="mb-6 w-32 border-t border-border" />
+            <div className="mb-6 w-full border-t border-white" />
             <h2 className="font-fraktion-mono text-h2 uppercase leading-tight tracking-widest text-foreground-active">
               Field capabilities with confidence
             </h2>
           </div>
 
-          <p className="font-muoto text-body-nom leading-relaxed text-foreground-muted text-right">
+          <p className="font-muoto text-body-nom text-foreground-muted text-right max-w-xl ml-auto">
             The U.S. government is fielding capabilities faster as systems become more autonomous,
             software-driven, and interconnected. Modern warfare demands speed, adaptability, and
             multi-domain operations. But the test infrastructure supporting these systems hasn&apos;t

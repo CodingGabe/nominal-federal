@@ -19,7 +19,7 @@ function Strip() {
       {items.map((item, i) => (
         <span
           key={i}
-          className="font-fraktion-mono text-sm uppercase tracking-widest text-foreground-muted"
+          className="font-fraktion-mono text-sm uppercase tracking-widest text-black"
         >
           {item}
         </span>
@@ -30,17 +30,20 @@ function Strip() {
 
 export default function MarqueeStrip() {
   return (
-    <div
-      className="relative flex h-12 w-full items-center overflow-hidden border-y border-border bg-background-muted"
+    <section
+      data-nav-theme="light"
+      className="w-full overflow-hidden border-t-[1.5px] border-b-[1.5px] border-black bg-white py-[100px]"
       aria-label="Feature highlights"
     >
-      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap">
-        <Strip />
-        {/* Duplicate for seamless loop — hidden from assistive tech */}
-        <span aria-hidden="true" className="contents">
+      <div className="relative flex items-center overflow-hidden">
+        <div className="animate-marquee flex items-center gap-8 whitespace-nowrap">
           <Strip />
-        </span>
+          {/* Duplicate for seamless loop — hidden from assistive tech */}
+          <span aria-hidden="true" className="contents">
+            <Strip />
+          </span>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

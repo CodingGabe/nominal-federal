@@ -71,7 +71,7 @@ const config: Config = {
         ],
       },
       fontSize: {
-        h1: ["82.89px", { lineHeight: "1", letterSpacing: "0em", letterSpacing: '-0.02em' }],
+        h1: ["82.89px", { lineHeight: "1", letterSpacing: "-0.02em" }],
         h2: ["36px", { lineHeight: "1.2", letterSpacing: "0em" }],
         h3: ["36px", { lineHeight: "1.2", letterSpacing: "-0.03em" }],
         h4: ["28px", { lineHeight: "1.2", letterSpacing: "-0.03em" }],

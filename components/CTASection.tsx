@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function CTASection() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -50,17 +51,17 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section className="relative min-h-[600px] overflow-hidden bg-black py-32 flex items-center justify-center">
-      {/* Horizontal line texture */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundColor: "#000000",
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.07) 28px, rgba(255,255,255,0.07) 29px)",
-        }}
-      />
+    <section data-nav-theme="dark" className="relative min-h-[600px] overflow-hidden bg-black py-32 flex items-center justify-center">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/cta-bg.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+      </div>
 
       {/* Center mask — darkens the middle for readability */}
       <div
@@ -99,10 +100,10 @@ export default function CTASection() {
         </p>
 
         <div ref={buttonsRef} className="mt-4 flex justify-center gap-4">
-          <button className="rounded-none border border-white bg-white px-12 py-4 font-fraktion-mono text-btn uppercase tracking-widest text-black transition-colors duration-200 hover:bg-transparent hover:text-white">
+          <button className="rounded-none border border-[var(--btn-primary-border)] bg-[var(--btn-primary-bg)] px-12 py-4 font-fraktion-mono text-btn uppercase tracking-widest text-[var(--btn-primary-fg)] transition-colors duration-200 hover:border-[var(--btn-primary-border-hover)]">
             Contact Us
           </button>
-          <button className="rounded-none border border-white bg-transparent px-12 py-4 font-fraktion-mono text-btn uppercase tracking-widest text-white transition-colors duration-200 hover:bg-white hover:text-black">
+          <button className="rounded-none border border-[var(--btn-secondary-border)] bg-[var(--btn-secondary-bg)] px-12 py-4 font-fraktion-mono text-btn uppercase tracking-widest text-[var(--btn-secondary-fg)] transition-colors duration-200 hover:border-[var(--btn-secondary-border-hover)]">
             Request a Demo
           </button>
         </div>

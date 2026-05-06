@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -10,16 +11,22 @@ const cardData = [
   {
     index: 0,
     stickyClass: "sticky top-0 z-10",
+    img: "/images/speed.png",
+    alt: "Increase speed",
     copy: "Nominal accelerates the ability to validate and field warfighter capabilities, enabling organizations to continuously test and iterate on hardware systems more quickly, executing more test cycles in a period of time.",
   },
   {
     index: 1,
     stickyClass: "sticky top-8 z-20",
+    img: "/images/reduce-cost.png",
+    alt: "Reduce cost",
     copy: "Nominal reduces the overall cost of testing by enabling more test cycles in a given period of time and reducing organizational cycle time across teams, including hardware engineers, test operators, and support staff.",
   },
   {
     index: 2,
     stickyClass: "sticky top-16 z-30",
+    img: "/images/enhance.png",
+    alt: "Enhance reliability",
     copy: "Nominal’s software platform integrates live streaming and historical batch data from multiple pieces of hardware in a common operating picture, enabling rapid iteration on numerous technologies during operational tests of mission-critical systems.",
   },
 ];
@@ -69,36 +76,46 @@ export default function BenefitsSection() {
   }, []);
 
   return (
-    <section className="bg-black py-24">
+    <section data-nav-theme="light" className="relative bg-white py-24">
+      <div className="absolute top-0 right-0 h-[400px] w-[600px] pointer-events-none overflow-hidden">
+        <Image
+          src="/images/product-section-bg.webp"
+          alt=""
+          fill
+          className="object-cover object-left-bottom"
+          aria-hidden="true"
+        />
+      </div>
       <div className="mx-auto max-w-7xl px-16">
         <div className="grid grid-cols-[7fr_13fr] items-start gap-16">
 
           {/* ── Left sticky column ─────────────────────────────────────── */}
           <div className="sticky top-24 self-start">
-            <div className="mb-6 w-32 border-t border-border" />
-            <h2 className="mb-16 font-fraktion-mono text-h2 uppercase leading-tight tracking-widest text-foreground-active">
+            <div className="mb-6 w-full border-t border-black" />
+            <h2 className="mb-16 font-fraktion-mono text-h2 uppercase leading-tight text-black">
               Learn from tests faster than the pace of threats
             </h2>
 
             {labels.map((label, i) => (
               <div key={i} className="mb-8">
-                <div className="mb-3 w-full border-t border-border" />
+                <div className="mb-3 w-full border-t border-black" />
                 <p
                   className={`font-muoto text-sm transition-colors duration-200 ${
                     i === activeIndex
-                      ? "text-foreground-active"
-                      : "text-foreground-muted"
+                      ? "text-black"
+                      : "text-foreground-disabled"
                   }`}
                 >
                   {label}
                 </p>
+                <div className="mt-3 w-full border-t border-black" />
               </div>
             ))}
           </div>
 
           {/* ── Right scrolling column ─────────────────────────────────── */}
           <div className="flex flex-col gap-0">
-            {cardData.map(({ index, stickyClass, copy }) => {
+            {cardData.map(({ index, stickyClass, img, alt, copy }) => {
               const isVisible = visible[index];
               // Cards behind the current active card compress slightly
               const isScaled = index < activeIndex;
@@ -134,14 +151,15 @@ export default function BenefitsSection() {
                   data-benefit-index={String(index)}
                   className={cardClass}
                 >
-                  {/* Screenshot placeholder — swap for <Image> once assets are ready */}
-                  <div className="absolute inset-0 bg-neutral-900" />
-
-                  {/* Bottom text fade */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90" />
-
-                  {/* Side vignette */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(0,0,0,0.4)_100%)]" />
+                  <div className="absolute inset-0">
+                    <Image
+                      src={img}
+                      alt={alt}
+                      fill
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/90" />
+                  </div>
 
                   {/* Text overlay */}
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-8">

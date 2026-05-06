@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -105,13 +106,22 @@ export default function MissionSection() {
   }, []);
 
   return (
-    <section className="bg-white py-24">
+    <section data-nav-theme="light" className="relative bg-white py-24">
+      <div className="absolute top-0 right-0 h-[400px] w-[600px] pointer-events-none overflow-hidden">
+        <Image
+          src="/images/product-section-bg.webp"
+          alt=""
+          fill
+          className="object-cover object-left-bottom"
+          aria-hidden="true"
+        />
+      </div>
       <div className="mx-auto max-w-7xl px-16">
         {/* Header */}
         <div ref={headerRef} className="mb-16 text-center">
-          <div className="mx-auto mb-6 w-64 border-t border-neutral-300" />
-          <h2 className="font-fraktion-mono text-h2 uppercase leading-tight tracking-widest text-black">
-            Built for the most demanding programs
+          <div className="mx-auto mb-6 w-96 border-t border-black" />
+          <h2 className="font-fraktion-mono text-h2 uppercase leading-tight tracking-tight text-black">
+            Designed for High-Stake Missions
           </h2>
         </div>
 

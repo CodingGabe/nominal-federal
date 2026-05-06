@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from 'next/image'
+import Image from "next/image";
+import HeroShader from "@/components/HeroShader";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -43,18 +44,11 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
+      data-nav-theme="dark"
       className="relative min-h-screen overflow-hidden bg-background-muted"
     >
-      {/* Background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url('/images/hero-bg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
+      {/* Shader background */}
+      <HeroShader />
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-transparent" />
@@ -70,14 +64,14 @@ export default function Hero() {
 
         <p
           data-animate
-          className="max-w-lg text-center font-muoto text-body-nom text-foreground-muted"
+          className="max-w-lg text-center font-muoto text-body-nom text-foreground-muted text-balance"
         >
           Accelerate the ability to validate and field warfighter capabilities.
         </p>
 
         <button
           data-animate
-          className="rounded-none border border-neutral-700 bg-neutral-900 px-8 py-3 font-fraktion-mono text-[13px] font-bold uppercase tracking-tight text-white transition-colors hover:border-neutral-600 hover:bg-neutral-800"
+          className="rounded-none border border-[var(--btn-primary-border)] bg-[var(--btn-primary-bg)] px-8 py-3 font-fraktion-mono text-[13px] font-bold uppercase tracking-tight text-[var(--btn-primary-fg)] transition-colors duration-200 hover:border-[var(--btn-primary-border-hover)]"
         >
           Request a Demo
         </button>
@@ -88,12 +82,14 @@ export default function Hero() {
         data-animate
         className="relative z-10 mx-auto mt-16 w-full max-w-4xl px-6"
       >
-        <div className="relative min-h-[500px] overflow-hidden rounded-t-lg border border-border bg-background">
-          <p className="pt-24 text-center text-foreground-muted">
-            [ Nominal App UI ]
-          </p>
-
-          {/* Fade mask */}
+        <div className="relative min-h-[500px] overflow-hidden rounded-t-lg border border-border">
+          <Image
+            src="/images/product-dashboard.png"
+            alt="Nominal product dashboard"
+            fill
+            className="object-cover object-top"
+            priority
+          />
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-background-muted" />
         </div>
       </div>

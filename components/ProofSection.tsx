@@ -111,7 +111,7 @@ export default function ProofSection() {
   }, []);
 
   return (
-    <section className="bg-black py-24">
+    <section data-nav-theme="dark" className="bg-black py-24">
       {/* Header row — constrained width */}
       <div className="mx-auto max-w-7xl px-16">
         <div
@@ -120,8 +120,8 @@ export default function ProofSection() {
         >
           {/* Left: heading */}
           <div className="max-w-lg">
-            <div className="mb-6 w-32 border-t border-white/30" />
-            <h2 className="font-fraktion-mono text-h2 uppercase leading-tight tracking-widest text-white">
+            <div className="mb-6 w-full border-t border-white/30" />
+            <h2 className="font-fraktion-mono text-h2 uppercase leading-tight tracking-tight text-white">
               Deployed by U.S. military organizations and best-in-class defense
               technology companies
             </h2>
@@ -129,7 +129,7 @@ export default function ProofSection() {
 
           {/* Right: CTA */}
           <div className="flex-shrink-0 self-start pt-2">
-            <button className="rounded-none border border-white bg-white px-8 py-4 font-fraktion-mono text-[16px] uppercase tracking-widest text-black transition-colors duration-200 hover:bg-transparent hover:text-white">
+            <button className="rounded-none border border-[var(--btn-primary-border)] bg-[var(--btn-primary-bg)] px-8 py-4 font-fraktion-mono text-[16px] uppercase tracking-widest text-[var(--btn-primary-fg)] transition-colors duration-200 hover:border-[var(--btn-primary-border-hover)]">
               Request a Demo
             </button>
           </div>
